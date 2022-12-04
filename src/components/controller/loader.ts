@@ -1,22 +1,9 @@
 import * as types from '../types';
-// type respObject = {
-//     endpoint: string;
-//     options?: object;
-//     callback?: Function;
-// };
-// type responseObject = {
-//     ok: boolean;
-//     status: number;
-//     statusText: string;
-//     json: Function;
-// };
-
-// type: {}
 
 class Loader {
     readonly baseLink: string;
     readonly options: object;
-
+    
     constructor(baseLink: string, options: object) {
         this.baseLink = baseLink;
         this.options = options;
@@ -48,9 +35,6 @@ class Loader {
         Object.entries(urlOptions).forEach((entry: string[]) => {
             url += `${entry[0]}=${entry[1]}&`;
         });
-        // Object.keys(urlOptions).forEach((key: string) => {
-        //     url += `${key}=${urlOptions[key]}&`;
-        // });
 
         return url.slice(0, -1);
     }

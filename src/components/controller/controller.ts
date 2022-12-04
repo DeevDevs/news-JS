@@ -5,7 +5,6 @@ class AppController extends AppLoader {
     getSources(callback: types.callbackFnGetSources) {
         super.getResp({ endpoint: 'sources' }, callback);
     }
-
     getNews(e: MouseEvent, callback: types.callbackFnGetNews) {
         let target = e.target as HTMLElement;
         const newsContainer = e.currentTarget as HTMLElement;
