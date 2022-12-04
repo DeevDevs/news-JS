@@ -24,7 +24,7 @@ class Loader {
 
     getResp(
         { endpoint, options = {} }: types.respObject,
-        callback: Function = () => {
+        callback: types.callbackFnGetSources | types.callbackFnGetNews = () => {
             console.error('No callback for GET response');
         }
     ) {
@@ -55,7 +55,12 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: Function, options = {}) {
+    load(
+        method: string,
+        endpoint: string,
+        callback: types.callbackFnGetSources | types.callbackFnGetNews,
+        options = {}
+    ) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
