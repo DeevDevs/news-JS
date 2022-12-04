@@ -1,14 +1,17 @@
-type respObject = {
-    endpoint: string;
-    options?: object;
-    callback?: Function;
-};
-type responseObject = {
-    ok: boolean;
-    status: number;
-    statusText: string;
-    json: Function;
-};
+import * as types from '../types';
+// type respObject = {
+//     endpoint: string;
+//     options?: object;
+//     callback?: Function;
+// };
+// type responseObject = {
+//     ok: boolean;
+//     status: number;
+//     statusText: string;
+//     json: Function;
+// };
+
+// type: {}
 
 class Loader {
     readonly baseLink: string;
@@ -20,15 +23,15 @@ class Loader {
     }
 
     getResp(
-        { endpoint, options = {} }: respObject,
-        callback = () => {
+        { endpoint, options = {} }: types.respObject,
+        callback: Function = () => {
             console.error('No callback for GET response');
         }
     ) {
         this.load('GET', endpoint, callback, options);
     }
 
-    errorHandler(res: responseObject) {
+    errorHandler(res: types.responseObject) {
         if (!res.ok) {
             if (res.status === 401 || res.status === 404)
                 console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -39,12 +42,15 @@ class Loader {
     }
 
     makeUrl(options: object, endpoint: string) {
-        const urlOptions: any = { ...this.options, ...options };
+        const urlOptions = { ...this.options, ...options } as object;
         let url = `${this.baseLink}${endpoint}?`;
 
-        Object.keys(urlOptions).forEach((key: string) => {
-            url += `${key}=${urlOptions[key]}&`;
+        Object.entries(urlOptions).forEach((entry: string[]) => {
+            url += `${entry[0]}=${entry[1]}&`;
         });
+        // Object.keys(urlOptions).forEach((key: string) => {
+        //     url += `${key}=${urlOptions[key]}&`;
+        // });
 
         return url.slice(0, -1);
     }

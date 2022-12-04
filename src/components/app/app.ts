@@ -1,31 +1,32 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
+import * as types from '../types';
 
-type sourceItem = {
-    name: string;
-    id: string;
-};
+// type sourceItem = {
+//     name: string;
+//     id: string;
+// };
 
-type dataExample = {
-    author: string;
-    content: string;
-    description: string;
-    publishedAt: string;
-    source: {
-        id: string;
-        name: string;
-    };
-    title: string;
-    url: string;
-    urlToImage: string;
-};
+// type dataExample = {
+//     author: string;
+//     content: string;
+//     description: string;
+//     publishedAt: string;
+//     source: {
+//         id: string;
+//         name: string;
+//     };
+//     title: string;
+//     url: string;
+//     urlToImage: string;
+// };
 
-type newsData = {
-    articles: dataExample[];
-};
-type sourcesData = {
-    sources: sourceItem[];
-};
+// type newsData = {
+//     articles: dataExample[];
+// };
+// type sourcesData = {
+//     sources: sourceItem[];
+// };
 
 class App {
     controller: AppController;
@@ -38,9 +39,9 @@ class App {
     start() {
         const sourcesContainer = document.querySelector('.sources') as HTMLElement;
         sourcesContainer.addEventListener('click', (e) =>
-            this.controller.getNews(e, (data: newsData) => this.view.drawNews(data))
+            this.controller.getNews(e, (data: types.newsData) => this.view.drawNews(data))
         );
-        this.controller.getSources((data: sourcesData) => this.view.drawSources(data));
+        this.controller.getSources((data: types.sourcesData) => this.view.drawSources(data));
     }
 }
 
