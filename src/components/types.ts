@@ -51,5 +51,9 @@ export interface ILoader {
 }
 
 export interface INews {
-    
+    draw(data: dataExample[]): void;
+}
+
+export interface ISources {
+    draw(data: sourceItem[]): void;
 }
