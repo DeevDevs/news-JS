@@ -1,9 +1,9 @@
 import * as types from '../types';
 
-class Loader {
+class Loader implements types.ILoader {
     readonly baseLink: string;
     readonly options: object;
-    
+
     constructor(baseLink: string, options: object) {
         this.baseLink = baseLink;
         this.options = options;
@@ -29,7 +29,9 @@ class Loader {
     }
 
     makeUrl(options: object, endpoint: string) {
-        const urlOptions = { ...this.options, ...options } as object;
+        // let urlOptions: object;
+        // let url: string;
+        const urlOptions: object = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.entries(urlOptions).forEach((entry: string[]) => {
