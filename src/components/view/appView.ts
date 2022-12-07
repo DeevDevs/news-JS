@@ -2,7 +2,7 @@ import News from './news/news';
 import Sources from './sources/sources';
 import * as types from '../types';
 
-export class AppView {
+export class AppView implements types.IAppView {
     news: News;
     sources: Sources;
 

@@ -29,8 +29,6 @@ class Loader implements types.ILoader {
     }
 
     makeUrl(options: object, endpoint: string) {
-        // let urlOptions: object;
-        // let url: string;
         const urlOptions: object = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 

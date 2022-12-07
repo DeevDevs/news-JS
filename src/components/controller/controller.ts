@@ -1,17 +1,18 @@
 import AppLoader from './appLoader';
 import * as types from '../types';
+import { checkParentNode, checkIfString, checkEventCurTg, checkEventTarget } from '../checkSelector';
 
 class AppController extends AppLoader {
     getSources(callback: types.callbackFnGetSources) {
         super.getResp({ endpoint: 'sources' }, callback);
     }
     getNews(e: MouseEvent, callback: types.callbackFnGetNews) {
-        let target = e.target as HTMLElement;
-        const newsContainer = e.currentTarget as HTMLElement;
+        let target: HTMLElement = checkEventTarget(e);
+        const newsContainer: HTMLElement = checkEventCurTg(e);
 
         while (target !== newsContainer) {
             if (target.classList.contains('source__item')) {
-                const sourceId = target.getAttribute('data-source-id') as string;
+                const sourceId: string = checkIfString(target.getAttribute('data-source-id'));
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
                     super.getResp(
@@ -26,7 +27,7 @@ class AppController extends AppLoader {
                 }
                 return;
             }
-            target = target.parentNode as HTMLElement;
+            target = checkParentNode(target);
         }
     }
 }
