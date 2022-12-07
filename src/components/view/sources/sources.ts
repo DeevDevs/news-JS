@@ -2,11 +2,6 @@ import './sources.css';
 import * as types from '../../types';
 import { checkedHTMLTESelector, checkedElementSelector } from '../../checkSelector';
 
-// type sourceItem = {
-//     name: string;
-//     id: string;
-// };
-
 class Sources implements types.ISources {
     draw(data: types.sourceItem[]): void {
         const fragment: DocumentFragment = document.createDocumentFragment();

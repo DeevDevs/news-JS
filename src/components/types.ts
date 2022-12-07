@@ -57,3 +57,8 @@ export interface INews {
 export interface ISources {
     draw(data: sourceItem[]): void;
 }
+
+export interface IAppView {
+    news: INews;
+    sources: ISources;
+}

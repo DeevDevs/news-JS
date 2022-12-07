@@ -2,20 +2,6 @@ import './news.css';
 import * as types from '../../types';
 import { checkedHTMLTESelector, checkedElementSelector, checkedHTMLElementSelector } from '../../checkSelector';
 
-// type dataExample = {
-//     author: string;
-//     content: string;
-//     description: string;
-//     publishedAt: string;
-//     source: {
-//         id: string;
-//         name: string;
-//     };
-//     title: string;
-//     url: string;
-//     urlToImage: string;
-// };
-
 class News implements types.INews {
     draw(data: types.dataExample[]): void {
         const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
