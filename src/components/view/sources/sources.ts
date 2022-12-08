@@ -7,7 +7,7 @@ class Sources implements types.ISources {
         const fragment: DocumentFragment = document.createDocumentFragment();
         const sourceItemTemp: HTMLTemplateElement = checkedHTMLTESelector(document, '#sourceItemTemp');
         data.forEach((item: types.sourceItem) => {
-            const sourceClone = checkClone(sourceItemTemp);
+            const sourceClone: DocumentFragment = checkClone(sourceItemTemp);
             const itemName: Element = checkedElementSelector(sourceClone, '.source__item-name');
             const itemAttr: Element = checkedElementSelector(sourceClone, '.source__item');
             itemName.textContent = item.name;

@@ -44,7 +44,7 @@ export type callbackFnGetSources = (arg0: sourcesData) => void;
 export interface ILoader {
     baseLink: string;
     options: object;
-    load(method: string, endpoint: string, callback: callbackFnGetSources | callbackFnGetNews, options: {}): void;
+    load(method: string, endpoint: string, callback: callbackFnGetSources | callbackFnGetNews, options: object): void;
     makeUrl(options: object, endpoint: string): string;
     errorHandler(res: responseObject): responseObject;
     getResp({ endpoint, options = {} }: respObject, callback: callbackFnGetSources | callbackFnGetNews): void;

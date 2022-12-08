@@ -1,7 +1,6 @@
 export const checkedHTMLTESelector = (el: Element | Document, selector: string): HTMLTemplateElement => {
     const selectedEl = el.querySelector(selector);
-    if (!(selectedEl instanceof HTMLTemplateElement))
-        throw new Error(`There is no element with "${selector}" selector`);
+    if (!(selectedEl instanceof HTMLTemplateElement)) throw new Error(`There is no element with "${selector}" selector`);
     return selectedEl;
 };
 
@@ -11,7 +10,7 @@ export const checkedElementSelector = (el: Element | Document | DocumentFragment
     return selectedEl;
 };
 
-export const checkedHTMLElementSelector = (el: Element | Document, selector: string): HTMLElement => {
+export const checkedHTMLElementSelector = (el: Element | Document | DocumentFragment, selector: string): HTMLElement => {
     const selectedEl = el.querySelector(selector);
     if (!(selectedEl instanceof HTMLElement)) throw new Error(`There is no element with "${selector}" selector`);
     return selectedEl;

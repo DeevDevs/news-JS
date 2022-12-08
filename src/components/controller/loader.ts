@@ -20,8 +20,7 @@ class Loader implements types.ILoader {
 
     errorHandler(res: types.responseObject) {
         if (!res.ok) {
-            if (res.status === 401 || res.status === 404)
-                console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
+            if (res.status === 401 || res.status === 404) console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
             throw Error(res.statusText);
         }
 
@@ -39,16 +38,11 @@ class Loader implements types.ILoader {
         return url.slice(0, -1);
     }
 
-    load(
-        method: string,
-        endpoint: string,
-        callback: types.callbackFnGetSources | types.callbackFnGetNews,
-        options = {}
-    ) {
+    load(method: string, endpoint: string, callback: types.callbackFnGetSources | types.callbackFnGetNews, options = {}) {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
-            .then((data) => callback(data))
+            .then((data: types.sourcesData & types.newsData) => callback(data))
             .catch((err) => console.error(err));
     }
 }
