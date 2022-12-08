@@ -33,3 +33,7 @@ footer .copyright a:hover {
 footer .copyright:before {
     content: '©';
 }
+
+main {
+    position: relative;
+}

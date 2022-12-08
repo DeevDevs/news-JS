@@ -4,6 +4,7 @@ import { checkedHTMLTESelector, checkedElementSelector, checkClone } from '../..
 
 class Sources implements types.ISources {
     draw(data: types.sourceItem[]): void {
+        console.log(data);
         const fragment: DocumentFragment = document.createDocumentFragment();
         const sourceItemTemp: HTMLTemplateElement = checkedHTMLTESelector(document, '#sourceItemTemp');
         data.forEach((item: types.sourceItem) => {
