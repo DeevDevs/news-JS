@@ -37,13 +37,21 @@ export type sourceItem = {
     id: string;
 };
 
-export type newsData = {
+interface IData {
     articles: dataExample[];
-};
-
-export type sourcesData = {
     sources: sourceItem[];
-};
+}
+
+export type newsData = Pick<IData, 'articles'>;
+export type sourcesData = Pick<IData, 'sources'>;
+
+// export type newsData = {
+//     articles: dataExample[];
+// };
+
+// export type sourcesData = {
+//     sources: sourceItem[];
+// };
 
 export type callbackFnGetNews = (arg0: newsData) => void;
 export type callbackFnGetSources = (arg0: sourcesData) => void;
