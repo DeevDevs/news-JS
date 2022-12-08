@@ -3,10 +3,10 @@ import * as types from '../types';
 import { checkParentNode, checkIfString, checkEventCurTg, checkEventTarget } from '../checkSelector';
 
 class AppController extends AppLoader {
-    getSources(callback: types.callbackFnGetSources) {
+    public getSources(callback: types.callbackFnGetSources) {
         super.getResp({ endpoint: 'sources' }, callback);
     }
-    getNews(e: MouseEvent, callback: types.callbackFnGetNews) {
+    public getNews(e: MouseEvent, callback: types.callbackFnGetNews) {
         let target: HTMLElement = checkEventTarget(e);
         const newsContainer: HTMLElement = checkEventCurTg(e);
 

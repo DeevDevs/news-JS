@@ -2,9 +2,9 @@ import News from './news/news';
 import Sources from './sources/sources';
 import * as types from '../types';
 
-export class AppView implements types.IAppView {
-    news: News;
-    sources: Sources;
+export class AppView {
+    private news: types.INews;
+    private sources: types.ISources;
 
     constructor() {
         this.news = new News();

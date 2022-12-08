@@ -1,3 +1,6 @@
+// import News from './view/news/news';
+// import Sources from './view/sources/sources';
+
 export const enum ConstValues {
     numberOfNews = 10,
 }
@@ -46,8 +49,8 @@ export type callbackFnGetNews = (arg0: newsData) => void;
 export type callbackFnGetSources = (arg0: sourcesData) => void;
 
 export interface ILoader {
-    baseLink: string;
-    options: object;
+    readonly baseLink: string;
+    readonly options: object;
     load(method: string, endpoint: string, callback: callbackFnGetSources | callbackFnGetNews, options: object): void;
     makeUrl(options: object, endpoint: string): string;
     errorHandler(res: responseObject): responseObject;
@@ -62,10 +65,10 @@ export interface ISources {
     draw(data: sourceItem[]): void;
 }
 
-export interface IAppView {
-    news: INews;
-    sources: ISources;
-}
+// export interface IAppView {
+//     news: INews;
+//     sources: ISources;
+// }
 
 export interface ICheckSelector<T> {
     (el: Element | Document | DocumentFragment, selector: string): T;
