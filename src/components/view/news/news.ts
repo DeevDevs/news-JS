@@ -4,7 +4,7 @@ import { checkedHTMLTESelector, checkedElementSelector, checkedHTMLElementSelect
 
 class News implements types.INews {
     draw(data: types.dataExample[]): void {
-        const news: types.dataExample[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
+        const news: types.dataExample[] = data.length >= types.ConstValues.numberOfNews ? data.filter((_item, idx) => idx < types.ConstValues.numberOfNews) : data;
         const fragment: DocumentFragment = document.createDocumentFragment();
         const newsItemTemp: HTMLTemplateElement = checkedHTMLTESelector(document, '#newsItemTemp');
         news.forEach((item: types.dataExample, idx: number) => {

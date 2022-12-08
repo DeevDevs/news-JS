@@ -1,3 +1,7 @@
+export const enum ConstValues {
+    numberOfNews = 10,
+}
+
 export type respObject = {
     endpoint: string;
     options?: object;
@@ -61,4 +65,8 @@ export interface ISources {
 export interface IAppView {
     news: INews;
     sources: ISources;
+}
+
+export interface ICheckSelector<T> {
+    (el: Element | Document | DocumentFragment, selector: string): T;
 }

@@ -1,16 +1,18 @@
-export const checkedHTMLTESelector = (el: Element | Document, selector: string): HTMLTemplateElement => {
+import * as types from './types';
+
+export const checkedHTMLTESelector: types.ICheckSelector<HTMLTemplateElement> = (el, selector) => {
     const selectedEl = el.querySelector(selector);
     if (!(selectedEl instanceof HTMLTemplateElement)) throw new Error(`There is no element with "${selector}" selector`);
     return selectedEl;
 };
 
-export const checkedElementSelector = (el: Element | Document | DocumentFragment, selector: string): Element => {
+export const checkedElementSelector: types.ICheckSelector<Element> = (el, selector) => {
     const selectedEl = el.querySelector(selector);
     if (!(selectedEl instanceof Element)) throw new Error(`There is no element with "${selector}" selector`);
     return selectedEl;
 };
 
-export const checkedHTMLElementSelector = (el: Element | Document | DocumentFragment, selector: string): HTMLElement => {
+export const checkedHTMLElementSelector: types.ICheckSelector<HTMLElement> = (el, selector) => {
     const selectedEl = el.querySelector(selector);
     if (!(selectedEl instanceof HTMLElement)) throw new Error(`There is no element with "${selector}" selector`);
     return selectedEl;
