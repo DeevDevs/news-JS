@@ -37,3 +37,10 @@ footer .copyright:before {
 main {
     position: relative;
 }
+
+@media (max-width: 640px) {
+    header h1 {
+        font-size: 30px;
+        font-weight: 800;
+    }
+}
